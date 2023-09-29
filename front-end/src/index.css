@@ -1,13 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
 }
+
+@layer base {
+    p {
+        @apply text-sm lg:text-base;
+    }
+
+    h1 {
+        @apply text-2xl md:text-3xl lg:text-4xl;
+    }
+
+    h2 {
+        @apply text-xl md:text-2xl lg:text-3xl;
+    }
+
+    h3 {
+        @apply text-lg md:text-xl lg:text-2xl;
+    }
+    h4 {
+        @apply text-base md:text-xl;
+    }
+    h5 {
+        @apply text-base md:text-lg;
+    }
+}
+
+
+/* Antd Table custom */
+
+input:focus-visible {
+    outline: none;
+  }
+  
+  select:focus-visible {
+    outline: none;
+  }
+  
+  .ant-table-thead tr :first-child {
+    border-bottom-left-radius: 8px;
+  }
+  
+  .ant-table-thead tr :last-child {
+    border-bottom-right-radius: 8px;
+  }
+  
+  .ant-table-thead tr th {
+    background: #3634b0 !important;
+  }
+  
+  .ant-table-thead tr th {
+    color: #ffffff !important;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  
+  .ant-table-thead tr th div {
+    font-size: 12px;
+    font-weight: 400;
+    color: #ffffff;
+  }
+  
+  .ant-table-thead tr th span {
+    color: #ffffff;
+  }
+
+  /* menu sidebar */
+  ul li .ant-menu-submenu-title{
+    padding: 0px 24px !important;
+  }
+
+  .ant-btn-primary{
+    background-color: #1677ff !important;
+  }

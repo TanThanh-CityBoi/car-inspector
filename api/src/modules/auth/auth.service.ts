@@ -1,20 +1,20 @@
 import {
   BadRequestException,
+  UnauthorizedException,
   Inject,
   Injectable,
-  UnauthorizedException,
   forwardRef,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { ConfigService } from '@nestjs/config';
+import { JwtService } from '@nestjs/jwt';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
-import { JwtService } from '@nestjs/jwt';
 
 import { IJwtPayload } from '@/interfaces';
-import { LoginDto } from './dto';
 import { UsersService } from '@users/users.service';
 import { AuthToken } from './entities/auth-token.entity';
-import { ConfigService } from '@nestjs/config';
+import { LoginDto } from './dto';
 
 @Injectable()
 export class AuthService {
@@ -33,7 +33,6 @@ export class AuthService {
     const userInfo = await this.userService.findOne({
       username: loginDto.username,
     });
-
     if (!userInfo) {
       throw new BadRequestException('username or password is not correct');
     }
@@ -72,14 +71,49 @@ export class AuthService {
     };
   }
 
-  validateToken(token: string) {
-    return token ? true : false;
+  async renewAccessToken(token: string, payload: IJwtPayload) {
+    const authToken = await this.authTokenRepo.findOne({
+      where: {
+        userId: payload.sub,
+        refreshToken: token,
+        deletedAt: null,
+      },
+    });
+    if (!authToken) {
+      throw new BadRequestException({ message: 'Invalid token' });
+    }
+
+    const newAccessToken = this.jwtService.sign(payload, {
+      expiresIn: this.config.get('jwtAccessExpire'),
+      secret: this.config.get('jwtAccessKey'),
+    });
+    const newRefreshToken = this.jwtService.sign(payload, {
+      expiresIn: this.config.get('jwtRefreshExpire'),
+      secret: this.config.get('jwtRefreshKey'),
+    });
+
+    await this.authTokenRepo.update(
+      { id: authToken.id },
+      {
+        accessToken: newAccessToken,
+        refreshToken: newRefreshToken,
+      },
+    );
+
+    return {
+      accessToken: newAccessToken,
+      refreshToken: newRefreshToken,
+      userId: payload.sub,
+    };
   }
 
-  renewAccessToken(payload: IJwtPayload) {
-    return {
-      accessToken: '',
-      refreshToken: '',
-    };
+  getRefreshToken(userId: number, token: string) {
+    return this.authTokenRepo.findOne({
+      where: {
+        userId,
+        refreshToken: token,
+        deletedAt: null,
+      },
+    });
   }
 }

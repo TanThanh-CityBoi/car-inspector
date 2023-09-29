@@ -15,12 +15,19 @@ import { JwtModule } from '@nestjs/jwt';
 @Module({
   imports: [
     PassportModule,
-    JwtModule.register({ secret: '' }),
+    JwtModule.register({ secret: 'secret' }),
     forwardRef(() => UsersModule),
     TypeOrmModule.forFeature([AuthToken]),
   ],
   controllers: [AuthController],
   providers: [
+    AuthService,
+    JwtAccessTokenGuard,
+    JwtRefreshTokenGuard,
+    JwtAccessTokenStrategy,
+    JwtRefreshTokenStrategy,
+  ],
+  exports: [
     AuthService,
     JwtAccessTokenGuard,
     JwtRefreshTokenGuard,

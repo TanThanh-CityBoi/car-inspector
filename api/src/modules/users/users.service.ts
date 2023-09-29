@@ -14,6 +14,10 @@ export class UsersService extends BaseService<User> {
   }
 
   getProfile(id: number) {
-    return this.userRepository.findOneBy({ id });
+    return this.userRepository
+      .createQueryBuilder('user')
+      .leftJoinAndSelect('user.role', 'role')
+      .where('user.id = :userId', { userId: id })
+      .getOne();
   }
 }
