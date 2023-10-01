@@ -11,7 +11,7 @@ import {
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Role } from '@roles/entities/role.entity';
 import { User } from '@users/entities/user.entity';
-import { CarInspection, Cars } from '@cars/entities';
+import { CarInspection, Cars, UnsatisCriteria } from '@cars/entities';
 
 @Module({
   imports: [
@@ -24,7 +24,7 @@ import { CarInspection, Cars } from '@cars/entities';
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
         ...configService.get('database'),
-        entities: [User, Role, Cars, CarInspection],
+        entities: [User, Role, Cars, CarInspection, UnsatisCriteria],
       }),
       inject: [ConfigService],
     }),

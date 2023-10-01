@@ -1,26 +1,53 @@
+import { BaseService } from '@/base/base.servicce';
 import { Injectable } from '@nestjs/common';
-import { CreateCarDto } from './dto/create-car.dto';
-import { UpdateCarDto } from './dto/update-car.dto';
+import { Cars } from './entities';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
-export class CarsService {
-  create(createCarDto: CreateCarDto) {
-    return 'This action adds a new car';
+export class CarsService extends BaseService<Cars> {
+  constructor(
+    @InjectRepository(Cars)
+    public carRepo: Repository<Cars>,
+  ) {
+    super(carRepo);
   }
 
-  findAll() {
-    return `This action returns all cars`;
-  }
+  async getList(query: any) {
+    const { search, status, page = 1, limit = 10 } = query;
+    const skip = (page - 1) * limit;
 
-  findOne(id: number) {
-    return `This action returns a #${id} car`;
-  }
+    let condition = '';
+    if (status == 0) {
+      condition +=
+        '( NOT EXISTS(select * FROM car_inspection WHERE car_inspection.car_id = car.id) )';
+    }
+    if (status == 1) {
+      condition +=
+        '( EXISTS(select * FROM car_inspection WHERE car_inspection.car_id = car.id) )';
+    }
 
-  update(id: number, updateCarDto: UpdateCarDto) {
-    return `This action updates a #${id} car`;
-  }
+    if (search) {
+      condition += `${condition.length ? 'AND' : ''} 
+      ( car.name LIKE :search
+        OR car.sku LIKE :search
+        OR car.model LIKE :search )`;
+    }
 
-  remove(id: number) {
-    return `This action removes a #${id} car`;
+    const result = await this.carRepo
+      .createQueryBuilder('car')
+      .leftJoinAndSelect('car.inspections', 'inspections')
+      .leftJoinAndSelect('inspections.creator', 'creator')
+      .leftJoinAndSelect('inspections.unsatisCriteria', 'unsatisCriteria')
+      .where(condition, { search: `%${search}%` })
+      .skip(skip)
+      .take(limit)
+      .orderBy('car.createdAt', 'DESC')
+      .getManyAndCount();
+
+    return {
+      count: result[1],
+      items: result[0],
+    };
   }
 }

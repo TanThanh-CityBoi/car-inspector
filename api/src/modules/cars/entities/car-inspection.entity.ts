@@ -8,9 +8,11 @@ import {
   DeleteDateColumn,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
 import { Cars } from './car.entity';
 import { User } from '@users/entities/user.entity';
+import { UnsatisCriteria } from './unsatis-criteria.entity';
 
 @Entity({ name: 'car_inspection' })
 export class CarInspection extends BaseEntity {
@@ -20,22 +22,23 @@ export class CarInspection extends BaseEntity {
   @Column('int', { name: 'score', nullable: true })
   score: number;
 
-  @Column('int', { name: 'total_score', nullable: true })
+  @Column('int', { name: 'total_score', default: 223 })
   totalScore: number;
 
   @Column('int', { name: 'car_id', unsigned: true })
   carId: number;
-  @ManyToOne(() => Cars, (car) => car.inspections)
+  @ManyToOne(() => Cars, (car) => car.id)
   @JoinColumn({
     name: 'car_id',
   })
   car: Cars;
 
-  // @OneToMany(() => NonStandardCriteria, (criteria) => criteria.carInspectionId)
-  // nonStandardCriteria: CarInspectionDetail[];
+  @OneToMany(() => UnsatisCriteria, (criteria) => criteria.carInspection)
+  unsatisCriteria: UnsatisCriteria[];
 
   @Column('int', { name: 'created_by', unsigned: true })
   createdBy: number;
+
   @ManyToOne(() => User, (user) => user.id)
   @JoinColumn({
     name: 'created_by',

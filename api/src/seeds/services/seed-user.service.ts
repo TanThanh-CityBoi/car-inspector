@@ -11,12 +11,15 @@ export class SeedUserService {
   constructor(private readonly config: ConfigService) {}
 
   async createUser() {
-    const [roleAdmin, roleMechanical] = await Promise.all([
+    const [roleAdmin, roleMechanical, roleUser] = await Promise.all([
       Role.findOne({
         where: { name: ROLES.ADMIN },
       }),
       Role.findOne({
         where: { name: ROLES.MECHANICAL },
+      }),
+      Role.findOne({
+        where: { name: ROLES.USER },
       }),
     ]);
     const passwordHash = hashSync('123123', this.config.get('passwordSalt'));
@@ -38,6 +41,15 @@ export class SeedUserService {
         username: 'mechanical',
         password: passwordHash,
         email: 'mechanical@gmail.com',
+        avatar: null,
+      },
+      {
+        roleId: roleUser.id,
+        firstName: 'user',
+        lastName: 'vucar',
+        username: 'user',
+        password: passwordHash,
+        email: 'user@gmail.com',
         avatar: null,
       },
     ]);

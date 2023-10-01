@@ -1,42 +1,23 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
+import { Controller, Get, Param, Query, UseGuards } from '@nestjs/common';
 import { CarsService } from './cars.service';
-import { CreateCarDto } from './dto/create-car.dto';
-import { UpdateCarDto } from './dto/update-car.dto';
+import { _response } from '@/utils/response';
+import { JwtAccessTokenGuard } from '@auth/guards/jwt-access-token.guard';
 
-@Controller('cars')
+@Controller('api/cars')
 export class CarsController {
   constructor(private readonly carsService: CarsService) {}
 
-  @Post()
-  create(@Body() createCarDto: CreateCarDto) {
-    return this.carsService.create(createCarDto);
+  @UseGuards(JwtAccessTokenGuard)
+  @Get('detail/:id')
+  async getDetail(@Param('id') id: number) {
+    const result = await this.carsService.findOne({ id });
+    return _response({ data: result });
   }
 
-  @Get()
-  findAll() {
-    return this.carsService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.carsService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCarDto: UpdateCarDto) {
-    return this.carsService.update(+id, updateCarDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.carsService.remove(+id);
+  @UseGuards(JwtAccessTokenGuard)
+  @Get('get-list')
+  async getList(@Query() query: any) {
+    const result = await this.carsService.getList(query);
+    return _response({ data: result });
   }
 }

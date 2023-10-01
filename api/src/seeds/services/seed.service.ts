@@ -19,14 +19,14 @@ export class SeedService {
     try {
       this.logger.verbose('Seeder running!!');
 
-      // console.log('========= Create roles:');
-      // await this.seedRole.createRoles();
+      console.log('========= Create roles:');
+      await this.seedRole.createRoles();
 
-      // console.log('========= Create user:');
-      // await this.seedUser.createUser();
+      console.log('========= Create user:');
+      await this.seedUser.createUser();
 
-      // console.log('========= Create cars:');
-      // await this.seedCars.createCars();
+      console.log('========= Create cars:');
+      await this.seedCars.createCars();
     } catch (err) {
       this.logger.error(err);
     }

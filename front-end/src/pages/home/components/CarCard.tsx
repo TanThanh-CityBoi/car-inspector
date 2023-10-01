@@ -35,7 +35,7 @@ export function CarCard(props: {
                {props.inspections?.length ? (
                   <Tag color="#87d068">Số lần kiểm định: {props.inspections?.length}</Tag>
                ) : (
-                  <Tag color="#f97316">Chưa Kiểm tra</Tag>
+                  <Tag color="#f97316">Chưa Kiểm định</Tag>
                )}
             </div>
 
@@ -48,9 +48,15 @@ export function CarCard(props: {
                <p>
                   Model: <span className="font-semibold">{props.model}</span>
                </p>
-               <p>
-                  Điểm đánh giá: <span className="font-semibold">{props.score + " / 223"} </span>
-               </p>
+               {props?.inspections?.[0] && (
+                  <p>
+                     Điểm đánh giá:{" "}
+                     <span className="font-semibold">
+                        {props?.inspections?.[0]?.score + " / 223"}{" "}
+                     </span>
+                  </p>
+               )}
+
                <p>
                   kiểm định gần nhất:{" "}
                   <span className="font-semibold">{format(new Date(), "dd-MM-yyyy")}</span>
