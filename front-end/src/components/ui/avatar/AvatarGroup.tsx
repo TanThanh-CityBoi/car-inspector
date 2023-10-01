@@ -2,29 +2,25 @@ import { Avatar, Dropdown, Space } from "antd";
 import { useNavigate } from "react-router-dom";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { AiOutlineLogout, AiOutlineUser, AiFillCaretDown } from "react-icons/ai";
-import { useState } from "react";
-
-import type { MenuProps } from "antd";
-import defaultAvatar from "assets/images/avatar/default.jpg";
-import { LOCAL_STORAGE } from "helper/storage.helper";
 import useSWR from "swr";
+
+import defaultAvatar from "assets/images/avatar/default.jpg";
+import type { MenuProps } from "antd";
 import { userAPI } from "api/user.api";
+import { _cookies } from "helper/cookies.helper";
 
 const AvatarGroup = (props: any) => {
    const navigate = useNavigate();
    const { data } = useSWR("users/getProfile", () => userAPI.getProfile());
    const userInfo = data?.data || {};
 
-   const [isModalOpen, setIsModalOpen] = useState(false);
-
    const onClick: MenuProps["onClick"] = async ({ key }) => {
       const handleClick: any = {
          "1": () => navigate("/profile"),
-         "2": () => setIsModalOpen(true),
+         "2": () => {},
          "3": () => {
-            LOCAL_STORAGE.removeAccessToken();
-            LOCAL_STORAGE.removeRefreshToken();
-            LOCAL_STORAGE.removeUser();
+            _cookies.removeAccessToken();
+            _cookies.removeRefreshToken();
             navigate("/login");
          },
       };

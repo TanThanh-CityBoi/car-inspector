@@ -1,15 +1,16 @@
 import { ReactElement } from "react";
+import { checkAuth } from "utils/function";
 
 const PermissionGuard = ({
    children,
-   permission,
+   roles,
 }: {
    children: any;
-   permission: string;
+   roles: Array<string>;
 }): ReactElement => {
-   const userInfo: any = { role: "admin" };
+   const user: any = checkAuth();
 
-   if (!permission || userInfo?.role === permission) return <>{children}</>;
+   if (!roles || roles?.includes(user?.role)) return <>{children}</>;
    return <></>;
 };
 

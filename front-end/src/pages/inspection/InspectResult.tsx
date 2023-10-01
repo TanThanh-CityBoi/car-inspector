@@ -4,10 +4,10 @@ import { Breadcrumb } from "antd";
 import { Link } from "react-router-dom";
 
 import PrimaryButton from "components/ui/button/PrimaryButtton";
-import UsersTable from "./components/UsersTable";
+import InspectResultTable from "./components/InspectResultTable";
 import { IoAddCircleOutline } from "react-icons/io5";
 
-function Members() {
+function InspectResult() {
    const [pageIndex, setPageIndex] = useState(1);
    const [pageSize, setPageSize] = useState(5);
    const [search, setSearch] = useState("");
@@ -66,7 +66,7 @@ function Members() {
                </div>
             </div>
          </div>
-         <UsersTable
+         <InspectResultTable
             pageIndex={pageIndex}
             setPageIndex={setPageIndex}
             pageSize={pageSize}
@@ -77,4 +77,4 @@ function Members() {
       </div>
    );
 }
-export default Members;
+export default InspectResult;

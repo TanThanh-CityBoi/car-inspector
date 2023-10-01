@@ -13,11 +13,14 @@ export class UsersService extends BaseService<User> {
     super(userRepository);
   }
 
-  getProfile(id: number) {
+  getProfile({ userId, username }: { userId?: number; username?: string }) {
     return this.userRepository
       .createQueryBuilder('user')
       .leftJoinAndSelect('user.role', 'role')
-      .where('user.id = :userId', { userId: id })
+      .where('user.id = :userId OR user.username = :username', {
+        userId,
+        username,
+      })
       .getOne();
   }
 }

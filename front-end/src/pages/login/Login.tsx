@@ -10,7 +10,7 @@ import SecondaryButton from "components/ui/button/SecondaryButton";
 import bg from "assets/images/background/bg_referral.webp";
 import { userAPI } from "api/user.api";
 import { toast } from "react-toastify";
-import { LOCAL_STORAGE } from "helper/storage.helper";
+import { _cookies } from "helper/cookies.helper";
 
 export default function Login() {
    const navigate = useNavigate();
@@ -21,10 +21,11 @@ export default function Login() {
       try {
          const loginRes = await userAPI.login(values);
          toast.success("Login successfully!");
-         LOCAL_STORAGE.setAccessToken(loginRes?.data?.accessToken);
-         LOCAL_STORAGE.setRefreshToken(loginRes?.data?.refreshToken);
 
-         navigate("/home");
+         _cookies.setAccessToken(loginRes?.data?.accessToken);
+         _cookies.setRefreshToken(loginRes?.data?.refreshToken);
+
+         navigate("/");
       } catch (error: any) {
          toast.error(error?.message || "Login fail!");
       }
@@ -50,8 +51,8 @@ export default function Login() {
    });
 
    useEffect(() => {
-      const accessToken = LOCAL_STORAGE.getAccessToken();
-      if (accessToken) navigate("/home");
+      const accessToken = _cookies.getAccessToken();
+      if (accessToken) navigate("/");
    }, []);
 
    if (isLogedIn) return <Navigate to="/" />;

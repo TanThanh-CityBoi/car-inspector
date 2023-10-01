@@ -1,9 +1,6 @@
-export const getBearerToken = (req) => {
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.split(' ')[0] === 'Bearer'
-  ) {
-    return req.headers.authorization.split(' ')[1];
+export const getBearerToken = (req, key = 'authorization') => {
+  if (req.headers[key] && req.headers[key].split(' ')[0] === 'Bearer') {
+    return req.headers[key].split(' ')[1];
   }
   return null;
 };

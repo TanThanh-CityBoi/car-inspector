@@ -14,7 +14,7 @@ type PropsType = {
    handleSearch: Function;
    memberType: number;
 };
-function MembersTable({
+function InspectResultTable({
    pageIndex,
    setPageIndex,
    pageSize,
@@ -130,4 +130,4 @@ function MembersTable({
       </div>
    );
 }
-export default MembersTable;
+export default InspectResultTable;

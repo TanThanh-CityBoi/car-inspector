@@ -2,17 +2,21 @@ import { ExtractJwt, Strategy } from 'passport-jwt';
 import { PassportStrategy } from '@nestjs/passport';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UsersService } from '@users/users.service';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class JwtAccessTokenStrategy extends PassportStrategy(
   Strategy,
   'jwt-access-token',
 ) {
-  constructor(private readonly userService: UsersService) {
+  constructor(
+    private readonly userService: UsersService,
+    public config: ConfigService,
+  ) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      secretOrKey: process.env.JWT_ACCESS_KEY,
+      secretOrKey: config.get('jwtAccessKey'),
     });
   }
 
@@ -20,7 +24,7 @@ export class JwtAccessTokenStrategy extends PassportStrategy(
     if (!payload.sub) {
       throw new UnauthorizedException('Invalid token');
     }
-    const userInfo = await this.userService.getProfile(payload.sub);
+    const userInfo = await this.userService.getProfile({ userId: payload.sub });
     return userInfo;
   }
 }

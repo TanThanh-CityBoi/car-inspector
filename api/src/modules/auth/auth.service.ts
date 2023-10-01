@@ -30,7 +30,7 @@ export class AuthService {
   ) {}
 
   async login(loginDto: LoginDto) {
-    const userInfo = await this.userService.findOne({
+    const userInfo = await this.userService.getProfile({
       username: loginDto.username,
     });
     if (!userInfo) {
@@ -48,6 +48,7 @@ export class AuthService {
     const payload: IJwtPayload = {
       sub: userInfo.id,
       username: userInfo.username,
+      role: userInfo?.role?.name,
     };
     const accessToken = this.jwtService.sign(payload, {
       expiresIn: this.config.get('jwtAccessExpire'),

@@ -9,16 +9,15 @@ import * as Yup from "yup";
 import PrimaryButton from "components/ui/button/PrimaryButtton";
 import SecondaryButton from "components/ui/button/SecondaryButton";
 import FullPageSpiner from "components/ui/spiner/FullPageSpiner";
-import { GENDERS } from "common/constant";
+import { GENDERS } from "utils/constant";
 import defaultAvatar from "assets/images/avatar/default.jpg";
 import { format } from "date-fns";
-import { useNavigate } from "react-router-dom";
+import useSWR from "swr";
+import { userAPI } from "api/user.api";
 
 function Profile() {
-   const navigate = useNavigate();
-
-   const userInfo: any = {};
-   const isLoading: boolean = false;
+   const { data, isLoading } = useSWR("users/getProfile", () => userAPI.getProfile());
+   const userInfo = data?.data || {};
 
    const [avatarFile, setAvatarFile] = useState<File | null>(null);
    const [avatarUrl, seAvatarUrl] = useState<any>("");

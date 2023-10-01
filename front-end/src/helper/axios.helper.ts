@@ -1,9 +1,9 @@
 import axios from "axios";
 import { API_CONFIG } from "../config";
-import { LOCAL_STORAGE } from "./storage.helper";
+import { _cookies } from "./cookies.helper";
 
 export const axiosInstance = () => {
-   const accessToken = LOCAL_STORAGE.getAccessToken();
+   const accessToken = _cookies.getAccessToken();
 
    const instance = axios.create({
       baseURL: API_CONFIG.API_URL,
@@ -30,7 +30,7 @@ export const axiosInstance = () => {
             error?.config?.url !== LOGIN_URL &&
             (!error?.config?.retryCount || error?.config?.retryCount < 2)
          ) {
-            const refreshToken = LOCAL_STORAGE.getRefreshToken();
+            const refreshToken = _cookies.getRefreshToken();
             if (!error.config?.retryCount) error.config.retryCount = 0;
             error.config.retryCount++;
 
@@ -41,8 +41,8 @@ export const axiosInstance = () => {
                      Authorization: `Bearer ${refreshToken}`,
                   },
                });
-               const accessToken = res?.data?.accessToken;
-               LOCAL_STORAGE.setAccessToken(accessToken);
+               _cookies.setAccessToken(res?.data?.accessToken);
+               _cookies.setRefreshToken(res?.data?.refreshToken);
 
                originalRequest.headers = {
                   "Content-Type": "application/json",
@@ -53,9 +53,8 @@ export const axiosInstance = () => {
                return instance(originalRequest);
             } catch (err) {
                originalRequest._retry = false;
-               LOCAL_STORAGE.removeAccessToken();
-               LOCAL_STORAGE.removeRefreshToken();
-               LOCAL_STORAGE.removeUser();
+               _cookies.removeAccessToken();
+               _cookies.removeRefreshToken();
             }
          }
          const getMessage: any = {

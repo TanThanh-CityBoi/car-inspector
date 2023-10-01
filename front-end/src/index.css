@@ -41,6 +41,28 @@ code {
 }
 
 
+@layer utilities {
+  @variants responsive {
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    .small-scrollbar::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .small-scrollbar::-webkit-scrollbar-thumb {
+      background-color: #0487f2;
+    }
+  }
+}
+
+
 /* Antd Table custom */
 
 input:focus-visible {
@@ -81,7 +103,16 @@ input:focus-visible {
 
   /* menu sidebar */
   ul li .ant-menu-submenu-title{
-    padding: 0px 24px !important;
+    padding: 0px 30px !important;
+  }
+
+  .ant-layout-sider-collapsed{
+    min-width: 100px !important;
+    width: 100px !important;
+  }
+
+  ul .ant-menu-item{
+    padding: 0px 30px !important;
   }
 
   .ant-btn-primary{

@@ -1,14 +1,13 @@
 import { ReactElement } from "react";
 
-import CreateAccount from "pages/members/CreateUser";
-import Members from "pages/members/UserList";
 import Profile from "pages/profile/Profile";
 import Home from "pages/home/Home";
 
 import Login from "pages/login/Login";
 import NotFound from "pages/404/NotFound";
 
-import { ROLES } from "common/constant";
+import { ROLES } from "utils/constant";
+import InspectResult from "pages/inspection/InspectResult";
 
 type route = {
    path: string;
@@ -30,18 +29,13 @@ const PublicRoutes: route[] = [
 const ProtectedRoutes: route[] = [
    // home
    {
-      path: "/home",
+      path: "/cars",
       element: <Home></Home>,
    },
    // users
    {
-      path: "/users",
-      element: <Members></Members>,
-      roles: [ROLES.ADMIN],
-   },
-   {
-      path: "/add-users",
-      element: <CreateAccount></CreateAccount>,
+      path: "/inspect-result",
+      element: <InspectResult />,
       roles: [ROLES.ADMIN],
    },
    // profile
