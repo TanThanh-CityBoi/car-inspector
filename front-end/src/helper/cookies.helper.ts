@@ -1,5 +1,5 @@
 import Cookies from "universal-cookie";
-const cookies = new Cookies();
+const cookies = new Cookies({ path: "/" });
 
 const STORAGE_KEY = {
    ACCESS_TOKEN: "access_token",

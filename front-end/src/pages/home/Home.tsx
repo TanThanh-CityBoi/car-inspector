@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Select, Carousel } from "antd";
 import useSWR, { mutate } from "swr";
 import { format } from "date-fns";
@@ -20,6 +20,8 @@ import { carAPI } from "api/car.api";
 
 function Home() {
    const refs: any = useRef();
+   const navigate = useNavigate();
+
    const [pageIndex, setPageIndex] = useState(1);
    const [pageSize, setPageSize] = useState(10);
    const [statusFilter, setStatusFilter] = useState([]);
@@ -165,6 +167,9 @@ function Home() {
                               content="Kiểm định"
                               fontSize="text-lg"
                               className="w-full"
+                              onClick={() => {
+                                 navigate(`/create-inspect/${cars?.[currentItem]?.sku}`);
+                              }}
                            />
                            <button className="ps-3">
                               <BsBookmark size={30} className="text-yellow-400 font-bold" />

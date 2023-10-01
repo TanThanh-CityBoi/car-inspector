@@ -3,6 +3,8 @@ import { Injectable } from '@nestjs/common';
 import { Cars } from './entities';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import * as fs from 'fs';
+import { join } from 'path';
 
 @Injectable()
 export class CarsService extends BaseService<Cars> {
@@ -49,5 +51,16 @@ export class CarsService extends BaseService<Cars> {
       count: result[1],
       items: result[0],
     };
+  }
+
+  async getInspectionCriteria() {
+    const fileData = fs.readFileSync(
+      join(__dirname, '../../common', 'inspect-criteria.json'),
+      {
+        encoding: 'utf8',
+      },
+    );
+    const result = JSON.parse(fileData);
+    return result;
   }
 }

@@ -8,9 +8,9 @@ export class CarsController {
   constructor(private readonly carsService: CarsService) {}
 
   @UseGuards(JwtAccessTokenGuard)
-  @Get('detail/:id')
-  async getDetail(@Param('id') id: number) {
-    const result = await this.carsService.findOne({ id });
+  @Get('detail/:sku')
+  async getDetail(@Param('id') sku: string) {
+    const result = await this.carsService.findOne({ sku });
     return _response({ data: result });
   }
 
@@ -18,6 +18,13 @@ export class CarsController {
   @Get('get-list')
   async getList(@Query() query: any) {
     const result = await this.carsService.getList(query);
+    return _response({ data: result });
+  }
+
+  @UseGuards(JwtAccessTokenGuard)
+  @Get('get-criteria')
+  async getInspectionCriteria() {
+    const result = await this.carsService.getInspectionCriteria();
     return _response({ data: result });
   }
 }

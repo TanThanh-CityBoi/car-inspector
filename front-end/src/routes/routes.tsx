@@ -8,6 +8,7 @@ import NotFound from "pages/404/NotFound";
 
 import { ROLES } from "utils/constant";
 import InspectResult from "pages/inspection/InspectResult";
+import CreateInspection from "pages/inspection/CreateInspection";
 
 type route = {
    path: string;
@@ -32,11 +33,15 @@ const ProtectedRoutes: route[] = [
       path: "/cars",
       element: <Home></Home>,
    },
-   // users
    {
       path: "/inspect-result",
       element: <InspectResult />,
-      roles: [ROLES.ADMIN],
+      roles: [ROLES.ADMIN, ROLES.MECHANICAL],
+   },
+   {
+      path: "/create-inspect/:sku",
+      element: <CreateInspection />,
+      roles: [ROLES.MECHANICAL],
    },
    // profile
    {

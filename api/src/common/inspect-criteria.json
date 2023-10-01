@@ -662,7 +662,7 @@
   },
   {
     "section": "Nội Thất (61 điểm)",
-    "group": [
+    "groups": [
       {
         "name": "Hệ thống an toàn (3 điểm)",
         "properties": [
@@ -951,7 +951,7 @@
   },
   {
     "section": "Khoang động cơ (22 điểm)",
-    "group": [
+    "groups": [
       {
         "name": "Động cơ & hộp số (16 điểm)",
         "properties": [
