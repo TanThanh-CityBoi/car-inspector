@@ -1,0 +1,1060 @@
+[
+  {
+    "section": null,
+    "groups": [
+      {
+        "name": "Hồ sơ và giấy tờ xe (11 điểm)",
+        "properties": [
+          {
+            "id": "lich-su-so-huu",
+            "name": "Lịch sử sở hữu"
+          },
+          {
+            "id": "phat-nguoi-chua-xu-ly",
+            "name": "Phạt nguội chưa xử lý"
+          },
+          {
+            "id": "cam-co-the-chap",
+            "name": "Cầm cố thế chấp"
+          },
+          {
+            "id": "dang-kiem",
+            "name": "Đăng kiểm"
+          },
+          {
+            "id": "dang-ky-xe",
+            "name": "Đăng ký xe"
+          },
+          {
+            "id": "so-vin",
+            "name": "Số VIN"
+          },
+          {
+            "id": "so-may",
+            "name": "Số máy"
+          },
+          {
+            "id": "so-bao-hanh",
+            "name": "Sổ bảo hành"
+          },
+          {
+            "id": "so-huong-dan-su-dung-xe",
+            "name": "Sổ hướng dẫn sử dụng xe"
+          },
+          {
+            "id": "so-bao-duong-dinh-ky",
+            "name": "Sổ bảo dưỡng định kỳ"
+          },
+          {
+            "id": "lich-su-dam-dung-nang",
+            "name": "Lịch sử đâm đụng nặng"
+          }
+        ]
+      },
+      {
+        "name": "Hệ thống chẩn đoán lỗi OBD (On–Board Diagnostics) (3 điểm)",
+        "properties": [
+          {
+            "id": "cong-ket-noi-obd",
+            "name": "Cổng kết nối OBD"
+          },
+          {
+            "id": "ma-loi-chan-doan-dtcs",
+            "name": "Mã lỗi chẩn đoán (DTCs)"
+          }
+        ]
+      },
+      {
+        "name": "Kiểm tra trên đường (20 điểm)",
+        "properties": [
+          {
+            "id": "tieng-on-cua-dong-co",
+            "name": "Tiếng ồn của động cơ"
+          },
+          {
+            "id": "hoat-dong-hop-so",
+            "name": "Hoạt động hộp số"
+          },
+          {
+            "id": "tieng-on-cua-hop-so",
+            "name": "Tiếng ồn của hộp số"
+          },
+          {
+            "id": "tieng-on-van-hanh-cau-dan-dong-hop-so-phu",
+            "name": "Tiếng ồn vận hành cầu dẫn động/hộp số phụ"
+          },
+          {
+            "id": "hoat-dong-he-thong-lai-can-bang-do-khop",
+            "name": "Hoạt động hệ thống lái (cân bằng, độ khớp)"
+          },
+          {
+            "id": "tieng-keu-than-xe-he-thong-treo",
+            "name": "Tiếng kêu thân xe/hệ thống treo"
+          },
+          {
+            "id": "hoat-dong-dong-ho-canh-bao",
+            "name": "Hoạt động đồng hồ cảnh báo"
+          },
+          {
+            "id": "phanh-va-abs",
+            "name": "Phanh và ABS"
+          },
+          {
+            "id": "tieng-on-thanh-can-bang",
+            "name": "Tiếng ồn thanh cân bằng"
+          },
+          {
+            "id": "tieng-on-giam-soc",
+            "name": "Tiếng ồn giảm sóc"
+          },
+          {
+            "id": "khong-co-tieng-on-gio",
+            "name": "Không có tiếng ồn gió"
+          },
+          {
+            "id": "ghi-nho-vi-tri-ghe-lai",
+            "name": "Ghi nhớ vị trí ghế lái"
+          },
+          {
+            "id": "ga-tu-dong",
+            "name": "Ga tự động"
+          },
+          {
+            "id": "hoat-dong-cua-ly-hop",
+            "name": "Hoạt động của ly hợp"
+          },
+          {
+            "id": "hoat-dong-co-cau-khoa-can-so",
+            "name": "Hoạt động cơ cấu khóa cần số"
+          },
+          {
+            "id": "che-do-khoi-dong-cam-chung",
+            "name": "Chế độ khởi động/cầm chừng"
+          },
+          {
+            "id": "he-thong-khoi-dong-tu-xa",
+            "name": "Hệ thống khởi động từ xa"
+          },
+          {
+            "id": "he-thong-ho-tro-lai",
+            "name": "Hệ thống hỗ trợ lái"
+          },
+          {
+            "id": "he-thong-giu-toc-do",
+            "name": "Hệ thống giữ tốc độ"
+          },
+          {
+            "id": "he-thong-giu-lane-duong-tu-dong",
+            "name": "Hệ thống giữ lane đường tự động"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Ngoại thất và thân xe (53 điểm)",
+    "groups": [
+      {
+        "name": "Kết cấu thân xe (10 điểm)",
+        "properties": [
+          {
+            "id": "than-vo-hinh-dang-gan-chi-be-mat-son",
+            "name": "Thân vỏ (hình dạng, gân chỉ, bề mặt sơn)"
+          },
+          {
+            "id": "moi-ghep-gioang",
+            "name": "Mối ghép, gioăng"
+          },
+          {
+            "id": "can-truoc",
+            "name": "Cản trước"
+          },
+          {
+            "id": "can-sau",
+            "name": "Cản sau"
+          },
+          {
+            "id": "cot-a-ben-tai",
+            "name": "Cột A bên tài"
+          },
+          {
+            "id": "cot-a-ben-phu",
+            "name": "Cột A bên phụ"
+          },
+          {
+            "id": "cot-b-ben-tai",
+            "name": "Cột B bên tài"
+          },
+          {
+            "id": "cot-b-ben-phu",
+            "name": "Cột B bên phụ"
+          },
+          {
+            "id": "nep-trang-tri",
+            "name": "Nẹp trang trí"
+          },
+          {
+            "id": "thanh-baga-mui",
+            "name": "Thanh baga mui"
+          }
+        ]
+      },
+      {
+        "name": "Hệ thống cửa (14 điểm)",
+        "properties": [
+          {
+            "id": "canh-cua-truoc-tai",
+            "name": "Cánh cửa trước tài"
+          },
+          {
+            "id": "canh-cua-truoc-phu",
+            "name": "Cánh cửa trước phụ"
+          },
+          {
+            "id": "canh-cua-sau-tai",
+            "name": "Cánh cửa sau tài"
+          },
+          {
+            "id": "canh-cua-sau-phu",
+            "name": "Cánh cửa sau phụ"
+          },
+          {
+            "id": "tay-nam-cua",
+            "name": "Tay nắm cửa"
+          },
+          {
+            "id": "tai-xe-ben-tai",
+            "name": "Tai xe bên tài"
+          },
+          {
+            "id": "tai-xe-ben-phu",
+            "name": "Tai xe bên phụ"
+          },
+          {
+            "id": "thanh-op-hong-ben-tai",
+            "name": "Thanh ốp hông bên tài"
+          },
+          {
+            "id": "thanh-op-hong-ben-phu",
+            "name": "Thanh ốp hông bên phụ"
+          },
+          {
+            "id": "hong-xe-ben-tai",
+            "name": "Hông xe bên tài"
+          },
+          {
+            "id": "hong-xe-ben-phu",
+            "name": "Hông xe bên phụ"
+          },
+          {
+            "id": "bac-buoc-chan-len-xuong",
+            "name": "Bậc bước chân lên xuống"
+          },
+          {
+            "id": "capo",
+            "name": "Capo"
+          },
+          {
+            "id": "cop-sau",
+            "name": "Cốp sau"
+          }
+        ]
+      },
+      {
+        "name": "Hệ thống đèn (4 điểm)",
+        "properties": [
+          {
+            "id": "den-chieu-sang-truoc-ben-tai",
+            "name": "Đèn chiếu sáng trước bên tài"
+          },
+          {
+            "id": "den-chieu-sang-truoc-ben-phu",
+            "name": "Đèn chiếu sáng trước bên phụ"
+          },
+          {
+            "id": "den-hau-ben-tai",
+            "name": "Đèn hậu bên tài"
+          },
+          {
+            "id": "den-hau-ben-phu",
+            "name": "Đèn hậu bên phụ"
+          }
+        ]
+      },
+      {
+        "name": "Hệ thống kính (14 điểm)",
+        "properties": [
+          {
+            "id": "guong-chieu-hau-ben-tai",
+            "name": "Gương chiếu hậu bên tài"
+          },
+          {
+            "id": "guong-chieu-hau-ben-phu",
+            "name": "Gương chiếu hậu bên phụ"
+          },
+          {
+            "id": "kinh-chan-gio-truoc",
+            "name": "Kính chắn gió trước"
+          },
+          {
+            "id": "kinh-chan-gio-truoc-zin",
+            "name": "Kính chắn gió trước ZIN"
+          },
+          {
+            "id": "kinh-chan-gio-sau",
+            "name": "Kính chắn gió sau"
+          },
+          {
+            "id": "kinh-chan-gio-sau-zin",
+            "name": "Kính chắn gió sau ZIN"
+          },
+          {
+            "id": "kinh-cua-truoc-ben-tai",
+            "name": "Kính cửa trước bên tài"
+          },
+          {
+            "id": "kinh-cua-truoc-ben-tai-zin",
+            "name": "Kính cửa trước bên tài ZIN"
+          },
+          {
+            "id": "kinh-cua-truoc-ben-phu",
+            "name": "Kính cửa trước bên phụ"
+          },
+          {
+            "id": "kinh-cua-truoc-ben-phu-zin",
+            "name": "Kính cửa trước bên phụ ZIN"
+          },
+          {
+            "id": "kinh-cua-sau-ben-tai",
+            "name": "Kính cửa sau bên tài"
+          },
+          {
+            "id": "kinh-cua-sau-ben-tai-zin",
+            "name": "Kính cửa sau bên tài ZIN"
+          },
+          {
+            "id": "kinh-cua-sau-ben-phu",
+            "name": "Kính cửa sau bên phụ"
+          },
+          {
+            "id": "kinh-cua-sau-ben-phu-zin",
+            "name": "Kính cửa sau bên phụ ZIN"
+          }
+        ]
+      },
+      {
+        "name": "Hệ thống tản nhiệt (1 điểm)",
+        "properties": [
+          {
+            "id": "luoi-tan-nhiet",
+            "name": "Lưới tản nhiệt"
+          }
+        ]
+      },
+      {
+        "name": "Luỡi gạt mưa (2 điểm)",
+        "properties": [
+          {
+            "id": "thanh-gat-mua",
+            "name": "Thanh gạt mưa"
+          },
+          {
+            "id": "cao-su-gat-mua-1-5",
+            "name": "Cao su gạt mưa (1-5)"
+          }
+        ]
+      },
+      {
+        "name": "Tấm trần xe, cửa sổ trời (3 điểm)",
+        "properties": [
+          {
+            "id": "hoat-dong-cua-lat-cua-troi",
+            "name": "Hoạt động cửa lật/Cửa trượt"
+          },
+          {
+            "id": "mui-xe",
+            "name": "Mui xe"
+          },
+          {
+            "id": "cua-so-troi",
+            "name": "Cửa sổ trời"
+          }
+        ]
+      },
+      {
+        "name": "Nắp bình xăng (1 điểm)",
+        "properties": [
+          {
+            "id": "nap-binh-xang",
+            "name": "Nắp bình xăng"
+          }
+        ]
+      },
+      {
+        "name": "Sơn xe (4 điểm)",
+        "properties": [
+          {
+            "id": "be-mat-son",
+            "name": "Bề mặt sơn"
+          },
+          {
+            "id": "tinh-dong-nhat-cua-mau-son",
+            "name": "Tính đồng nhất của màu sơn"
+          },
+          {
+            "id": "do-day-lop-son",
+            "name": "Độ dày lớp sơn"
+          },
+          {
+            "id": "bao-ve-son-ppf",
+            "name": "Bảo vệ sơn PPF"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Hệ thống khung gầm (54 điểm)",
+    "groups": [
+      {
+        "name": "Hệ thống khung xe và giảm xóc (15 điểm)",
+        "properties": [
+          {
+            "id": "khung-xuong-dau-xe",
+            "name": "Khung xương đầu xe"
+          },
+          {
+            "id": "khung-xuong-ket-nuoc",
+            "name": "Khung xương két nước"
+          },
+          {
+            "id": "u-giam-xoc-truoc-ben-tai",
+            "name": "Ụ giảm xóc trước bên tài"
+          },
+          {
+            "id": "u-giam-xoc-truoc-ben-phu",
+            "name": "Ụ giảm xóc trước bên phụ"
+          },
+          {
+            "id": "he-thong-giam-chan-truoc-ben-tai",
+            "name": "Hệ thống giảm chấn trước bên tài"
+          },
+          {
+            "id": "he-thong-giam-chan-truoc-ben-phu",
+            "name": "Hệ thống giảm chấn trước bên phụ"
+          },
+          {
+            "id": "he-thong-giam-chan-sau-ben-tai",
+            "name": "Hệ thống giảm chấn sau bên tài"
+          },
+          {
+            "id": "he-thong-giam-chan-sau-ben-phu",
+            "name": "Hệ thống giảm chấn sau bên phụ"
+          },
+          {
+            "id": "chan-xuong-gia-bat-cac-loai-den",
+            "name": "Chân, xương, giá bắt các loại đèn"
+          },
+          {
+            "id": "gia-do-dong-co",
+            "name": "Giá đỡ động cơ"
+          },
+          {
+            "id": "sat-xi-ben-tai",
+            "name": "Sắt xi bên tài"
+          },
+          {
+            "id": "sat-xi-ben-phu",
+            "name": "Sắt xi bên phụ"
+          },
+          {
+            "id": "cao-su-chup-bui",
+            "name": "Cao su chụp bụi"
+          },
+          {
+            "id": "khop-cac-dang-khop-truc-lap",
+            "name": "Khớp các đăng, khớp trục láp"
+          },
+          {
+            "id": "cao-su-chan-do-hop-so",
+            "name": "Cao su chân đỡ hộp số"
+          }
+        ]
+      },
+      {
+        "name": "Hệ thống ống xả (3 điểm)",
+        "properties": [
+          {
+            "id": "he-thong-ong-nhien-lieu-duoi-gam",
+            "name": "Hệ thống ống nhiên liệu dưới gầm"
+          },
+          {
+            "id": "he-thong-ong-xa",
+            "name": "Hệ thống ống xả"
+          },
+          {
+            "id": "nguyen-ban-cua-bulong-co-po",
+            "name": "Nguyên bản của bulong cổ pô"
+          }
+        ]
+      },
+      {
+        "name": "Hệ thống lốp xe (17 điểm)",
+        "properties": [
+          {
+            "id": "be-mat-lop-truoc-ben-tai",
+            "name": "Bề mặt lốp trước bên tài"
+          },
+          {
+            "id": "be-mat-lop-truoc-ben-phu",
+            "name": "Bề mặt lốp trước bên phụ"
+          },
+          {
+            "id": "be-mat-lop-sau-ben-tai",
+            "name": "Bề mặt lốp sau bên tài"
+          },
+          {
+            "id": "be-mat-lop-sau-ben-phu",
+            "name": "Bề mặt lốp sau bên phụ"
+          },
+          {
+            "id": "do-lao-hoa-cao-su-cua-lop-truoc-ben-tai",
+            "name": "Độ lão hóa cao su của lốp trước bên tài"
+          },
+          {
+            "id": "do-lao-hoa-cao-su-cua-lop-truoc-ben-phu",
+            "name": "Độ lão hóa cao su của lốp trước bên phụ"
+          },
+          {
+            "id": "do-lao-hoa-cao-su-cua-lop-sau-ben-tai",
+            "name": "Độ lão hóa cao su của lốp sau bên tài"
+          },
+          {
+            "id": "do-lao-hoa-cao-su-cua-lop-sau-ben-phu",
+            "name": "Độ lão hóa cao su của lốp sau bên phụ"
+          },
+          {
+            "id": "do-mon-lop-truoc-ben-tai",
+            "name": "Độ mòn lốp trước bên tài"
+          },
+          {
+            "id": "do-mon-lop-truoc-ben-phu",
+            "name": "Độ mòn lốp trước bên phụ"
+          },
+          {
+            "id": "do-mon-lop-sau-ben-tai",
+            "name": "Độ mòn lốp sau bên tài"
+          },
+          {
+            "id": "do-mon-lop-sau-ben-phu",
+            "name": "Độ mòn lốp sau bên phụ"
+          },
+
+          {
+            "id": "be-mat-la-zang-truoc-ben-tai",
+            "name": "Bề mặt la-zăng trước bên tài"
+          },
+          {
+            "id": "be-mat-la-zang-truoc-ben-phu",
+            "name": "Bề mặt la-zăng trước bên phụ"
+          },
+          {
+            "id": "be-mat-la-zang-sau-ben-tai",
+            "name": "Bề mặt la-zăng sau bên tài"
+          },
+          {
+            "id": "be-mat-la-zang-sau-ben-phu",
+            "name": "Bề mặt la-zăng sau bên phụ"
+          },
+          {
+            "id": "chup-la-zang",
+            "name": "Chụp la-zăng"
+          }
+        ]
+      },
+      {
+        "name": "Hệ thống cân bằng xe (6 điểm)",
+        "properties": [
+          {
+            "id": "thuoc-lai",
+            "name": "Thước lái"
+          },
+          {
+            "id": "ro-tuyn-lai-trong",
+            "name": "Rô-tuyn lái trong"
+          },
+          {
+            "id": "ro-tuyn-lai-ngoai",
+            "name": "Rô-tuyn lái ngoài"
+          },
+          {
+            "id": "ro-tuyn-can-bang",
+            "name": "Rô-tuyn cân bằng"
+          },
+          {
+            "id": "thanh-can-bang",
+            "name": "Thanh cân bằng"
+          },
+          {
+            "id": "bom-tro-luc-lai",
+            "name": "Bơm trợ lực lái"
+          }
+        ]
+      },
+      {
+        "name": "Hệ thống phanh (13 điểm)",
+        "properties": [
+          {
+            "id": "ma-phanh-truoc-ben-tai",
+            "name": "Má phanh trước bên tài"
+          },
+          {
+            "id": "ma-phanh-truoc-ben-phu",
+            "name": "Má phanh trước bên phụ"
+          },
+          {
+            "id": "ma-phanh-sau-ben-tai",
+            "name": "Má phanh sau bên tài"
+          },
+          {
+            "id": "ma-phanh-sau-ben-phu",
+            "name": "Má phanh sau bên phụ"
+          },
+          {
+            "id": "dia-phanh-tang-trong-truoc-ben-tai",
+            "name": "Đĩa phanh /tang trống trước bên tài"
+          },
+          {
+            "id": "dia-phanh-tang-trong-truoc-ben-phu",
+            "name": "Đĩa phanh /tang trống trước bên phụ"
+          },
+          {
+            "id": "dia-phanh-tang-trong-sau-ben-tai",
+            "name": "Đĩa phanh /tang trống sau bên tài"
+          },
+          {
+            "id": "dia-phanh-tang-trong-sau-ben-phu",
+            "name": "Đĩa phanh /tang trống sau bên phụ"
+          },
+          {
+            "id": "duong-ong-dau-phanh",
+            "name": "Đường ống dầu phanh"
+          },
+          {
+            "id": "phanh-tay",
+            "name": "Phanh tay"
+          },
+          {
+            "id": "xy-lanh-tong-phanh",
+            "name": "Xy lanh tổng phanh"
+          },
+          {
+            "id": "tinh-trang-ro-ri-dau",
+            "name": "Tình trạng rò rỉ dầu"
+          },
+          {
+            "id": "hop-so-tu-dong-san",
+            "name": "Hộp số tự động (sàn)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Nội Thất (61 điểm)",
+    "group": [
+      {
+        "name": "Hệ thống an toàn (3 điểm)",
+        "properties": [
+          {
+            "id": "tui-khi",
+            "name": "Túi khí"
+          },
+          {
+            "id": "day-dai-an-toan",
+            "name": "Dây đai an toàn"
+          },
+          {
+            "id": "chuc-nang-bat-den-bao-khan-cap",
+            "name": "Chức năng bật đèn báo khẩn cấp"
+          }
+        ]
+      },
+      {
+        "name": "Chức năng xe (23 điểm)",
+        "properties": [
+          {
+            "id": "he-thong-chong-trombao-dong",
+            "name": "Hệ thống chống trộm/báo động"
+          },
+          {
+            "id": "he-thong-dieu-hoa",
+            "name": "Hệ thống điều hòa"
+          },
+          {
+            "id": "he-thong-suoi",
+            "name": "Hệ thống sưởi"
+          },
+          {
+            "id": "be-mat-tap-lo",
+            "name": "Bề mặt táp-lô"
+          },
+          {
+            "id": "dong-ho-va-den-canh-bao-tren-tap-lo",
+            "name": "Đồng hồ và đèn cảnh báo trên táp-lô"
+          },
+          {
+            "id": "dieu-chinh-goc-khoang-cach-vo-lang",
+            "name": "Điều chỉnh góc/ khoảng cách vô-lăng"
+          },
+          {
+            "id": "khoa-tay-lai",
+            "name": "Khóa tay lái"
+          },
+          {
+            "id": "nut-dieu-khien-chuc-nang-tren-vo-lang",
+            "name": "Nút điều khiển chức năng trên vô-lăng"
+          },
+          {
+            "id": "coi-ken",
+            "name": "Còi (kèn)"
+          },
+          {
+            "id": "guong-trong-xe",
+            "name": "Gương trong xe"
+          },
+          {
+            "id": "hoc-gang-tay-tua-tay",
+            "name": "Hộc găng tay, tựa tay"
+          },
+          {
+            "id": "tam-che-nang-guong-trang-diem-va-den",
+            "name": "Tấm che nắng, gương trang điểm và đèn"
+          },
+          {
+            "id": "chuc-nang-bat-den-pha-cos-suong-mu",
+            "name": "Chức năng bật đèn pha/ cos/ sương mù"
+          },
+          {
+            "id": "he-thong-dieu-khien-tu-xa-va-khoi-dong-bang-nut-nhan",
+            "name": "Hệ thống điều khiển từ xa và khởi động bằng nút nhấn"
+          },
+          {
+            "id": "he-thong-giai-tri-phia-sau",
+            "name": "Hệ thống giải trí phía sau"
+          },
+          {
+            "id": "diem-cap-nguonmoi-thuoc",
+            "name": "Điểm cấp nguồn/mồi thuốc"
+          },
+          {
+            "id": "chuc-nang-dieu-chinh-guong-chieu-hau-ngoai",
+            "name": "Chức năng điều chỉnh gương chiếu hậu ngoài"
+          },
+          {
+            "id": "co-cau-mo-nap-nhien-lieu",
+            "name": "Cơ cấu mở nắp nhiên liệu"
+          },
+          {
+            "id": "he-thong-ho-tro-lai-cruise-control",
+            "name": "Hệ thống hỗ trợ lái (Cruise Control)"
+          },
+          {
+            "id": "radio-cd-va-loa",
+            "name": "Radio, CD và loa"
+          },
+          {
+            "id": "khoa-tre-em",
+            "name": "Khóa trẻ em"
+          },
+          {
+            "id": "ang-ten",
+            "name": "Ăng ten"
+          },
+          {
+            "id": "den-chieu-sang-noi-that",
+            "name": "Đèn chiếu sáng nội thất"
+          }
+        ]
+      },
+      {
+        "name": "Hệ thống gạt mưa (2 điểm)",
+        "properties": [
+          {
+            "id": "chuc-nang-rua-kinh",
+            "name": "Chức năng rửa kính"
+          },
+          {
+            "id": "chuc-nang-gat-mua",
+            "name": "Chức năng gạt mưa"
+          }
+        ]
+      },
+      {
+        "name": "Ghế ngồi (3 điểm)",
+        "properties": [
+          {
+            "id": "dieu-chinh-ghe-va-tua-dau",
+            "name": "Điều chỉnh ghế và tựa đầu"
+          },
+          {
+            "id": "gap-ghe",
+            "name": "Gập ghế"
+          },
+          {
+            "id": "suoi-ghe",
+            "name": "Sưởi ghế"
+          }
+        ]
+      },
+      {
+        "name": "Hệ thống cửa khóa + kính (8 điểm)",
+        "properties": [
+          {
+            "id": "dieu-khien-kinh-len-xuong-truoc-ben-tai",
+            "name": "Điều khiển kính lên xuống trước bên tài"
+          },
+          {
+            "id": "dieu-khien-kinh-len-xuong-truoc-ben-phu",
+            "name": "Điều khiển kính lên xuống trước bên phụ"
+          },
+          {
+            "id": "dieu-khien-kinh-len-xuong-sau-ben-tai",
+            "name": "Điều khiển kính lên xuống sau bên tài"
+          },
+          {
+            "id": "dieu-khien-kinh-len-xuong-sau-ben-phu",
+            "name": "Điều khiển kính lên xuống sau bên phụ"
+          },
+          {
+            "id": "co-cau-dongmo-cua-truoc-tai",
+            "name": "Cơ cấu đóng/mở cửa trước tài"
+          },
+          {
+            "id": "co-cau-dongmo-cua-truoc-phu",
+            "name": "Cơ cấu đóng/mở cửa trước phụ"
+          },
+          {
+            "id": "co-cau-dongmo-cua-sau-tai",
+            "name": "Cơ cấu đóng/mở cửa sau tài"
+          },
+          {
+            "id": "co-cau-dongmo-cua-sau-phu",
+            "name": "Cơ cấu đóng/mở cửa sau phụ"
+          }
+        ]
+      },
+      {
+        "name": "Hệ thống cảm biến + camera (3 điểm)",
+        "properties": [
+          {
+            "id": "he-thong-theo-doi-ap-suat-lop",
+            "name": "Hệ thống theo dõi áp suất lốp"
+          },
+          {
+            "id": "he-thong-camera-quan-sat",
+            "name": "Hệ thống camera quan sát"
+          },
+          {
+            "id": "cam-bien-khoang-cach",
+            "name": "Cảm biến khoảng cách"
+          }
+        ]
+      },
+      {
+        "name": "Khoang hành lý/cốp (9 điểm)",
+        "properties": [
+          {
+            "id": "mo-cop-sau-djieu-khien-tu-xa",
+            "name": "Mở cốp sau điều khiển từ xa"
+          },
+          {
+            "id": "xuong-tang-cung-djuoi-xe",
+            "name": "Xương tang cứng đuôi xe"
+          },
+          {
+            "id": "xuong-hoc-djat-banh-xe-du-phong",
+            "name": "Xương hốc đặt bánh xe dự phòng"
+          },
+          {
+            "id": "djen-khoang-hanh-ly",
+            "name": "Đèn khoang hành lý"
+          },
+          {
+            "id": "bo-dung-cu-va-kich-nang",
+            "name": "Bộ dụng cụ và kích nâng"
+          },
+          {
+            "id": "tinh-trang-lop-du-phong",
+            "name": "Tình trạng lốp dự phòng"
+          },
+          {
+            "id": "bo-dung-cu-sua-chua-du-phong",
+            "name": "Bộ dụng cụ sửa chữa dự phòng"
+          },
+          {
+            "id": "co-cau-mo-khoang-hanh-ly-khan-cap",
+            "name": "Cơ cấu mở khoang hành lý khẩn cấp"
+          },
+          {
+            "id": "chuc-nang-cua-so-troi",
+            "name": "Chức năng cửa sổ trời"
+          }
+        ]
+      },
+      {
+        "name": "Chất lượng vật liệu (10 điểm)",
+        "properties": [
+          {
+            "id": "tap-pi-cua-truoc-ben-tai",
+            "name": "Táp-pi cửa trước bên tài"
+          },
+          {
+            "id": "tap-pi-cua-truoc-ben-phu",
+            "name": "Táp-pi cửa trước bên phụ"
+          },
+          {
+            "id": "tap-pi-cua-sau-ben-tai",
+            "name": "Táp-pi cửa sau bên tài"
+          },
+          {
+            "id": "tap-pi-cua-sau-ben-phu",
+            "name": "Táp-pi cửa sau bên phụ"
+          },
+          {
+            "id": "tam-tran",
+            "name": "Tấm trần"
+          },
+          {
+            "id": "chat-luong-vat-lieu-boc-ghe",
+            "name": "Chất lượng vật liệu bọc ghế"
+          },
+          {
+            "id": "chat-luong-vat-lieu-boc-vo-lang",
+            "name": "Chất lượng vật liệu bọc vô lăng"
+          },
+          {
+            "id": "chat-luong-vat-lieu-boc-can-so",
+            "name": "Chất lượng vật liệu bọc cần số"
+          },
+          {
+            "id": "be-mat-op-nhua-noi-that",
+            "name": "Bề mặt ốp nhựa nội thất"
+          },
+          {
+            "id": "be-mat-op-da-noi-that",
+            "name": "Bề mặt ốp da nội thất"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Khoang động cơ (22 điểm)",
+    "group": [
+      {
+        "name": "Động cơ & hộp số (16 điểm)",
+        "properties": [
+          {
+            "id": "gioang-phot-dong-co",
+            "name": "Gioăng, phớt động cơ"
+          },
+          {
+            "id": "dai-dan-dong",
+            "name": "Đai dẫn động"
+          },
+          {
+            "id": "do-rung-dong-co",
+            "name": "Độ rung động cơ"
+          },
+          {
+            "id": "mo-to-de",
+            "name": "Mô-tơ đề"
+          },
+          {
+            "id": "hop-cau-chi",
+            "name": "Hộp cầu chì"
+          },
+          {
+            "id": "ac-quy",
+            "name": "Ắc quy"
+          },
+          {
+            "id": "day-dai-cam",
+            "name": "Dây đai cam"
+          },
+          {
+            "id": "may-phat-dien",
+            "name": "Máy phát điện"
+          },
+          {
+            "id": "cao-su-chan-may",
+            "name": "Cao su chân máy"
+          },
+          {
+            "id": "cac-bo-day-dien",
+            "name": "Các bó dây điện"
+          },
+          {
+            "id": "he-thong-turbo",
+            "name": "Hệ thống Turbo"
+          },
+          {
+            "id": "dau-nhot-dong-co",
+            "name": "Dầu (nhớt) động cơ"
+          },
+          {
+            "id": "dung-dich-la-trong-dau-dong-co",
+            "name": "Dung dịch lạ trong dầu động cơ"
+          },
+          {
+            "id": "cac-bo-day-dien",
+            "name": "Các bó dây điện"
+          },
+          {
+            "id": "tinh-trang-ro-ri-dau",
+            "name": "Tình trạng rò rỉ dầu"
+          },
+          {
+            "id": "ong-sao-su-va-moi-lap",
+            "name": "Ống sao su và mối lắp"
+          }
+        ]
+      },
+      {
+        "name": "Hệ thống làm mát (3 điểm)",
+        "properties": [
+          {
+            "id": "nuoc-lam-mat",
+            "name": "Nước làm mát"
+          },
+          {
+            "id": "ket-nuoc",
+            "name": "Két nước"
+          },
+          {
+            "id": "quat-lam-mat",
+            "name": "Quạt làm mát"
+          }
+        ]
+      },
+      {
+        "name": "Dung dịch (3 điểm)",
+        "properties": [
+          {
+            "id": "dau-phanh",
+            "name": "Dầu phanh"
+          },
+          {
+            "id": "dau-tro-luc-lai",
+            "name": "Dầu trợ lực lái"
+          },
+          {
+            "id": "dung-dich-nuoc-rua-kinh",
+            "name": "Dung dịch nước rửa kính"
+          }
+        ]
+      }
+    ]
+  }
+]

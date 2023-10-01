@@ -7,9 +7,11 @@ import {
   UpdateDateColumn,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
 
 import { Role } from '@roles/entities/role.entity';
+import { CarInspection } from '@cars/entities/car-inspection.entity';
 
 @Entity({ name: 'users' })
 export class User extends BaseEntity {
@@ -57,6 +59,9 @@ export class User extends BaseEntity {
 
   @Column('varchar', { length: 256, name: 'avatar', nullable: true })
   avatar: string;
+
+  @OneToMany(() => CarInspection, (car_inspection) => car_inspection.createdBy)
+  inspections: CarInspection[];
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

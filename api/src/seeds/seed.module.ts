@@ -2,10 +2,16 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import { databaseConfig, envConfig } from '@/configs';
-import { SeedRoleService, SeedService, SeedUserService } from './services';
+import {
+  SeedCarService,
+  SeedRoleService,
+  SeedService,
+  SeedUserService,
+} from './services';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Role } from '@roles/entities/role.entity';
 import { User } from '@users/entities/user.entity';
+import { CarInspection, Cars } from '@cars/entities';
 
 @Module({
   imports: [
@@ -18,11 +24,11 @@ import { User } from '@users/entities/user.entity';
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
         ...configService.get('database'),
-        entities: [User, Role],
+        entities: [User, Role, Cars, CarInspection],
       }),
       inject: [ConfigService],
     }),
   ],
-  providers: [SeedService, SeedUserService, SeedRoleService],
+  providers: [SeedService, SeedCarService, SeedUserService, SeedRoleService],
 })
 export class SeedModule {}
