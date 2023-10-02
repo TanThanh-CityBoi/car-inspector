@@ -1,52 +1,32 @@
-import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Anchor, Checkbox } from "antd";
+import { Anchor } from "antd";
 import useSWR from "swr";
 
-import PrimaryButton from "components/ui/button/PrimaryButtton";
-import SecondaryButton from "components/ui/button/SecondaryButton";
 import FullPageSpiner from "components/ui/spiner/FullPageSpiner";
 import PrimaryInput from "components/ui/input/PrimaryInput";
 import { carAPI } from "api/car.api";
-import { toast } from "react-toastify";
+import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
+import { format } from "date-fns";
 
-function CreateInspection() {
-   const { sku } = useParams();
+function InspectionResult() {
+   const { inspectCode } = useParams();
    const navigate = useNavigate();
 
-   const [failList, setFailList] = useState<Array<any>>([]);
-   const [failNoteList, setFailNoteList] = useState<Array<any>>([]);
-
-   const { data, isLoading } = useSWR("cars/detail", () => carAPI.getOne(sku || ""));
+   const {
+      data: inspectResultRes,
+      isLoading,
+      error,
+   } = useSWR("cars/inspectResult", () => carAPI.getInspectResult(inspectCode || ""));
    const { data: inspectCriteriaRes } = useSWR("cars/inspectCriteria", () => carAPI.getCriteria());
 
    const inspectCriteria = inspectCriteriaRes?.data;
-   const carInfo = data?.data;
+   const carInfo = inspectResultRes?.data?.car || {};
+   const failList = inspectResultRes?.data?.unsatisCriteria?.map((val: any) => val.criteriaId);
+   const failNoteList = inspectResultRes?.data?.unsatisCriteria?.map((val: any) => val.content);
 
-   const handleSubmit = async () => {
-      try {
-         const unacceptList: any = [];
-         failList?.map((failItem, id) => {
-            if (!failNoteList[id]) {
-               throw new Error("You have to fillin all notes of unacceptable criteria");
-            }
-            unacceptList.push({
-               id: failItem,
-               note: failNoteList[id],
-            });
-         });
-
-         const result = await carAPI.createInspection({
-            unacceptList,
-            carId: carInfo?.id,
-         });
-
-         toast.success(result?.data?.message || "The inspect result has been saved");
-         navigate("/inspect-result/" + result?.data?.inspectCode);
-      } catch (error: any) {
-         toast.error(error?.message || "Something went wrong");
-      }
-   };
+   if (error) {
+      navigate("/404");
+   }
 
    const getAnchorItems = () => {
       const parsedItems: any = [];
@@ -83,8 +63,23 @@ function CreateInspection() {
          <div className="sticky top-0 flex justify-between bg-white z-50 items-center py-4">
             <div>
                <h3 className="font-semibold mb-3">{carInfo?.name}</h3>
-               <p>Mã xe: {carInfo?.sku}</p>
-               <p>Model: {carInfo?.model}</p>
+               <div className="flex gap-x-20 gap-y-10">
+                  <div>
+                     <p className="mb-2">Mã xe: {carInfo?.sku}</p>
+                     <p>Model: {carInfo?.model}</p>
+                  </div>
+                  <div>
+                     <p className="mb-2">
+                        Người kiểm định: {inspectResultRes?.data?.creator?.username}
+                     </p>
+                     <p>
+                        Ngày kiểm định:{" "}
+                        {inspectResultRes?.data?.createdAt
+                           ? format(new Date(inspectResultRes?.data?.createdAt), "dd-MM-yyyy")
+                           : ""}
+                     </p>
+                  </div>
+               </div>
             </div>
 
             <div className="px-8">
@@ -124,24 +119,6 @@ function CreateInspection() {
                                  )}
 
                                  {group?.properties?.map((property: any, propId: number) => {
-                                    const onChange = (e: any) => {
-                                       if (e.target.checked) {
-                                          const rmId = failList.indexOf(property?.id);
-                                          const newListFail = failList.filter(
-                                             (val, idx) => idx !== rmId
-                                          );
-
-                                          const newListNote = failNoteList.filter(
-                                             (val, idx) => idx !== rmId
-                                          );
-
-                                          setFailList(newListFail);
-                                          setFailNoteList(newListNote);
-                                       } else {
-                                          setFailList([...failList, property?.id]);
-                                          setFailNoteList([...failNoteList, ""]);
-                                       }
-                                    };
                                     const checked = !failList?.includes(property?.id);
                                     return (
                                        <div key={propId}>
@@ -154,26 +131,26 @@ function CreateInspection() {
                                                 {property?.name}
                                              </p>
                                              <div>
-                                                <Checkbox
-                                                   defaultChecked={true}
-                                                   checked={checked}
-                                                   onChange={onChange}
-                                                   className={`${!checked ? "text-red-500" : ""}`}
-                                                >
-                                                   {checked ? "Đạt yêu cầu" : "Không đạt"}
-                                                </Checkbox>
+                                                {checked ? (
+                                                   <AiOutlineCheckCircle
+                                                      size={30}
+                                                      className="text-green-500"
+                                                   />
+                                                ) : (
+                                                   <AiOutlineCloseCircle
+                                                      size={30}
+                                                      className="text-red-500"
+                                                   />
+                                                )}
                                              </div>
                                           </div>
                                           {!checked && (
                                              <div className="mb-4">
                                                 <PrimaryInput
                                                    placeholder="Ghi chú"
-                                                   onChange={(e: any) => {
-                                                      const noteList = failNoteList;
-                                                      noteList[failList.indexOf(property?.id)] =
-                                                         e.target.value;
-                                                      setFailNoteList(noteList);
-                                                   }}
+                                                   value={
+                                                      failNoteList?.[failList.indexOf(property.id)]
+                                                   }
                                                 />
                                              </div>
                                           )}
@@ -192,20 +169,7 @@ function CreateInspection() {
                <Anchor replace offsetTop={300} items={getAnchorItems()} />
             </div>
          </div>
-
-         <div className="flex gap-4 py-5">
-            <PrimaryButton
-               content="Lưu kết quả"
-               onClick={() => handleSubmit()}
-               className="!px-12 !py-3"
-            />
-            <SecondaryButton
-               content="Hủy bỏ"
-               onClick={() => navigate("/")}
-               className="!px-12 !py-3"
-            />
-         </div>
       </div>
    );
 }
-export default CreateInspection;
+export default InspectionResult;

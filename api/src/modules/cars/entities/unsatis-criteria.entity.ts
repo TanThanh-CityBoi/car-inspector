@@ -22,8 +22,8 @@ export class UnsatisCriteria extends BaseEntity {
   })
   carInspection: CarInspection;
 
-  @Column('int', { name: 'criteria_id' })
-  criteriaId: number;
+  @Column('text', { name: 'criteria_id' })
+  criteriaId: string;
 
   @Column('text', { name: 'content', nullable: true })
   content: string;

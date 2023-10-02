@@ -5,6 +5,8 @@ export const carAPI = {
    getOne,
    getCriteria,
    createInspection,
+   getInspectResult,
+   getInspectHistory,
 };
 
 function getList(query: any) {
@@ -25,4 +27,14 @@ function getCriteria() {
 function createInspection(data: any) {
    const url = "cars/create-inspection";
    return axiosInstance().post(url, data);
+}
+
+function getInspectResult(inspectCode: string) {
+   const url = `cars/inspect-result/${inspectCode}`;
+   return axiosInstance().get(url);
+}
+
+function getInspectHistory(query: any) {
+   const url = `cars/inspect-history`;
+   return axiosInstance().get(url, { params: query });
 }

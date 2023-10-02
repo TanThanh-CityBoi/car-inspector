@@ -12,15 +12,15 @@ type PropsType = {
    pageSize: number;
    setPageSize: Function;
    handleSearch: Function;
-   memberType: number;
+   data: any;
 };
-function InspectResultTable({
+function InspectionListTable({
    pageIndex,
    setPageIndex,
    pageSize,
    setPageSize,
    handleSearch,
-   memberType,
+   data,
 }: PropsType) {
    const columns: any = [
       {
@@ -31,25 +31,24 @@ function InspectResultTable({
          sortDirections: ["descend", "ascend"],
       },
       {
-         title: "Họ Tên",
-         dataIndex: "fullName",
+         title: "Mã kiểm định",
+         dataIndex: "inspectCode",
       },
       {
-         title: "Tên đăng nhập",
-         dataIndex: "username",
+         title: "Tên xe",
+         dataIndex: "carName",
       },
       {
-         title: "Email",
-         dataIndex: "email",
+         title: "Model",
+         dataIndex: "model",
       },
       {
-         title: "Vai trò",
-         dataIndex: "role",
+         title: "Điểm",
+         dataIndex: "score",
       },
       {
-         title: "Ngày tạo",
-         dataIndex: "createdDate",
-         width: "120px",
+         title: "Ngày kiểm định",
+         dataIndex: "createdAt",
       },
       {
          title: "Hoạt động",
@@ -58,7 +57,6 @@ function InspectResultTable({
       },
    ];
 
-   const listUsers: any = [];
    const isLoading = false;
 
    const handleChangePageIndex = (_page = 1) => {
@@ -68,44 +66,26 @@ function InspectResultTable({
       setPageSize(_pageSize);
    };
 
-   const members = listUsers?.items?.map((item: any, id: number) => {
+   const members = data?.items?.map((item: any, id: number) => {
       return {
          index: id + 1,
          key: id,
-         fullName: <p className="line-clamp-2">{item.fullName}</p>,
-         userName: <p className="line-clamp-2">{item.userName}</p>,
-         email: <p className="line-clamp-2">{item.email}</p>,
-         accountBalance: (
-            <p>
-               {memberType
-                  ? new Intl.NumberFormat("vi").format(item.money || 0)
-                  : new Intl.NumberFormat("vi").format(item.moneySurplus || 0)}{" "}
-            </p>
-         ),
-         status: (
+         inspectCode: <p className="line-clamp-2">{item?.inspectCode}</p>,
+         carName: <p className="line-clamp-2">{item?.car?.name}</p>,
+         model: <p className="line-clamp-2">{item?.car?.model}</p>,
+         score: (
             <p className="line-clamp-2">
-               {item.deleted_at !== null ? (
-                  <Tag color="red">Deleted</Tag>
-               ) : item.isVerifyEmail ? (
-                  <Tag color="blue">Activated</Tag>
-               ) : (
-                  <Tag color="orange">InActive</Tag>
-               )}
+               {item?.score}/ {item?.totalScore}
             </p>
          ),
-         createdDate:
-            memberType === 0 ? (
-               <p className="line-clamp-2">
-                  {item.createDate ? format(new Date(item.createDate), "dd-MM-yyyy") : "-"}
-               </p>
-            ) : (
-               <p className="line-clamp-2">
-                  {item.created_at ? format(new Date(item.created_at), "dd-MM-yyyy") : "-"}
-               </p>
-            ),
+         createdAt: (
+            <p className="line-clamp-2">
+               {item.createdAt ? format(new Date(item.createdAt), "dd-MM-yyyy") : "-"}
+            </p>
+         ),
          action: (
-            <div className="flex gap-4">
-               <Link to={`/users/${item.username}`}>
+            <div className="flex justify-center">
+               <Link to={`/inspect-result/${item.inspectCode}`}>
                   <BsEye size={24} className="text-sky-500" />
                </Link>
             </div>
@@ -121,7 +101,7 @@ function InspectResultTable({
             <Table columns={columns} dataSource={members} pagination={false} />
          </div>
          <PaginationCustom
-            list={listUsers?.count || 0}
+            list={data?.count || 0}
             pageIndex={pageIndex}
             pageSize={pageSize}
             setPageSize={(_pageSize: number) => handleChangePageSize(_pageSize)}
@@ -130,4 +110,4 @@ function InspectResultTable({
       </div>
    );
 }
-export default InspectResultTable;
+export default InspectionListTable;

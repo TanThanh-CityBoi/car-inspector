@@ -2,15 +2,25 @@ import { useEffect, useState } from "react";
 import { GoSearch } from "react-icons/go";
 
 import PrimaryButton from "components/ui/button/PrimaryButtton";
-import InspectResultTable from "./components/InspectResultTable";
+import InspectionListTable from "./components/InspectionListTable";
+import { carAPI } from "api/car.api";
+import useSWR, { mutate } from "swr";
+import FullPageSpiner from "components/ui/spiner/FullPageSpiner";
 
-function InspectResult() {
+function InspectionList() {
    const [pageIndex, setPageIndex] = useState(1);
    const [pageSize, setPageSize] = useState(5);
    const [search, setSearch] = useState("");
 
+   const { data, isLoading, error } = useSWR("cars/inspection-history", () =>
+      carAPI.getInspectHistory({
+         page: pageIndex,
+         limit: pageSize,
+         search,
+      })
+   );
    const handleSearch = () => {
-      //
+      mutate("cars/inspection-history");
    };
    const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === "Enter") {
@@ -19,11 +29,11 @@ function InspectResult() {
    };
 
    useEffect(() => {
-      //
+      mutate("cars/inspection-history");
    }, [pageIndex, pageSize]);
 
    return (
-      <div className="p-4">
+      <div className="p-4 min-h-[calc(100vh-120px)]">
          <div className="flex justify-between my-4">
             <div className="basis-1/3">
                <h3 className="font-semibold mb-4">Kết quả kiểm định</h3>
@@ -48,15 +58,18 @@ function InspectResult() {
                ></PrimaryButton>
             </div>
          </div>
-         <InspectResultTable
+
+         <FullPageSpiner isLoading={isLoading} />
+
+         <InspectionListTable
             pageIndex={pageIndex}
             setPageIndex={setPageIndex}
             pageSize={pageSize}
             setPageSize={setPageSize}
             handleSearch={handleSearch}
-            memberType={0}
+            data={data?.data}
          />
       </div>
    );
 }
-export default InspectResult;
+export default InspectionList;

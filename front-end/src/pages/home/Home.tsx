@@ -17,6 +17,8 @@ import PrimaryButton from "components/ui/button/PrimaryButtton";
 import FullPageSpiner from "components/ui/spiner/FullPageSpiner";
 import { CarCard } from "./components/CarCard";
 import { carAPI } from "api/car.api";
+import PermissionGuard from "components/permission/PermissionGuard";
+import { ROLES } from "utils/constant";
 
 function Home() {
    const refs: any = useRef();
@@ -162,19 +164,21 @@ function Home() {
                            <i>{cars[currentItem].location}</i>
                         </div>
 
-                        <div className="flex">
-                           <PrimaryButton
-                              content="Kiểm định"
-                              fontSize="text-lg"
-                              className="w-full"
-                              onClick={() => {
-                                 navigate(`/create-inspect/${cars?.[currentItem]?.sku}`);
-                              }}
-                           />
-                           <button className="ps-3">
-                              <BsBookmark size={30} className="text-yellow-400 font-bold" />
-                           </button>
-                        </div>
+                        <PermissionGuard roles={[ROLES.MECHANICAL]}>
+                           <div className="flex">
+                              <PrimaryButton
+                                 content="Kiểm định"
+                                 fontSize="text-lg"
+                                 className="w-full"
+                                 onClick={() => {
+                                    navigate(`/create-inspect/${cars?.[currentItem]?.sku}`);
+                                 }}
+                              />
+                              <button className="ps-3">
+                                 <BsBookmark size={30} className="text-yellow-400 font-bold" />
+                              </button>
+                           </div>
+                        </PermissionGuard>
                      </div>
 
                      <hr></hr>
@@ -246,24 +250,35 @@ function Home() {
                               </div>
                            )}
 
-                           {cars[currentItem]?.inspections?.map((inspectn: any, id: number) => {
+                           {cars[currentItem]?.inspections?.map((inspection: any, id: number) => {
                               return (
                                  <div key={id} className="flex justify-between border p-4 mb-2">
                                     <div>
                                        <p>
                                           Ngày kiểm định:{" "}
                                           <span className="font-semibold">
-                                             {format(new Date(), "dd-MM-yyyy")}
+                                             {inspection?.createdAt
+                                                ? format(
+                                                     new Date(inspection?.createdAt),
+                                                     "dd-MM-yyyy"
+                                                  )
+                                                : "---"}
                                           </span>
                                        </p>
                                        <p>
                                           Người thực hiện:{" "}
-                                          <span className="font-semibold">{"thanh123"}</span>
+                                          <span className="font-semibold">
+                                             {inspection?.creator?.username}
+                                          </span>
                                        </p>
                                     </div>
                                     <div className="flex gap-4 items-center">
-                                       <h4>200 / 223</h4>
-                                       <AiOutlineEye size={25} color="#2797f3" />
+                                       <h4>
+                                          {inspection?.score} / {inspection?.totalScore}
+                                       </h4>
+                                       <Link to={`/inspect-result/${inspection?.inspectCode}`}>
+                                          <AiOutlineEye size={25} color="#2797f3" />
+                                       </Link>
                                     </div>
                                  </div>
                               );

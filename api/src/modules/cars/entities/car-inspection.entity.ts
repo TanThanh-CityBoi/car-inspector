@@ -25,6 +25,9 @@ export class CarInspection extends BaseEntity {
   @Column('int', { name: 'total_score', default: 223 })
   totalScore: number;
 
+  @Column('varchar', { name: 'inspect_code', length: 256 })
+  inspectCode: string;
+
   @Column('int', { name: 'car_id', unsigned: true })
   carId: number;
   @ManyToOne(() => Cars, (car) => car.id)
