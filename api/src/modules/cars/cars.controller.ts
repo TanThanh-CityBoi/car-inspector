@@ -22,7 +22,7 @@ export class CarsController {
 
   @UseGuards(JwtAccessTokenGuard)
   @Get('detail/:sku')
-  async getDetail(@Param('id') sku: string) {
+  async getDetail(@Param('sku') sku: string) {
     const result = await this.carsService.findOne({ sku });
     return _response({ data: result });
   }
